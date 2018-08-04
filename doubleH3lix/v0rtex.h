@@ -1,13 +1,15 @@
-#ifndef V0RTEX_H
-#define V0RTEX_H
+/*
+ * exploit64.h - Get kernel_task, root and escape the sandbox
+ *               Taken and modified from Phœnix Jailbreak
+ *
+ * Copyright (c) 2017 Siguza & tihmstar
+ */
+
+#ifndef EXPLOIT64_h
+#define EXPLOIT64_h
 
 #include <mach/mach.h>
 
-#include "common.h"
-#include "offsets.h"
-
-typedef kern_return_t (*v0rtex_cb_t)(task_t tfp0, kptr_t kbase, void *data);
-
-kern_return_t v0rtex(offsets_t *off, v0rtex_cb_t callback, void *cb_data);
+task_t get_kernel_task(vm_address_t *kbase);
 
 #endif
